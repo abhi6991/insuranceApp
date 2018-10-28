@@ -1,0 +1,7 @@
+{
+  "name": "FidSurance",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
