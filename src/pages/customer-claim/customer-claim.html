@@ -1,0 +1,38 @@
+<!--
+  Generated template for the CustomerClaimPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>customer-claim</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="!createdCode">
+    <ion-card-header>Choose Disease</ion-card-header>
+    <ion-card-content *ngIf="purchasedInsurances">
+      <ion-list *ngFor="let item of purchasedInsurances">
+        <ion-list *ngFor="let disease of item.diseaseCovered">
+          <ion-item>
+            {{disease}}
+            <span style="float:right">
+              <button ion-button round (click)="onClaim(item.name, disease)">
+                Claim
+              </button>
+            </span>
+          </ion-item>
+        </ion-list>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="createdCode">
+      <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+      <p>Code to be scanned by Doctor</p>
+    </ion-card>
+</ion-content>

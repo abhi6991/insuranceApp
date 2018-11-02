@@ -1,0 +1,26 @@
+<!--
+  Generated template for the MedicineClaimPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>medicine-claim</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngIf="!createdCode">
+      <ion-card-content>
+        No claims Raised
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="createdCode">
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+        <p>Scan code to get Info</p>
+    </ion-card>
+</ion-content>

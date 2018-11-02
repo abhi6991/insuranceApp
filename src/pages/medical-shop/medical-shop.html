@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Doctor
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content *ngIf="!approved">
+      <h3>Medicines</h3>
+      <p>Name: {{scannedCode.name}}</p>
+      <p>InsuranceName: {{scannedCode.insuranceName}}</p>
+      <p>Disease: {{scannedCode.disease}}</p>
+      <p>Medicine: {{scannedCode.medicine}}</p>
+      <p>Expense: <input type="text" [(ngModel)]="expense"></p>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button round (click)="onApprove()">Approve Claim</button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button round>Reject Claim</button>            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <ion-card-content *ngIf="approved">
+      <div align="center">Approved</div>
+      <p>Coins recived for amount: {{expense}}</p>
+    </ion-card-content>
+  </ion-card>
+  <button style="margin-top: 10%"
+  ion-button full icon-left 
+  (click)="scanCode()" 
+  color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+</ion-content>

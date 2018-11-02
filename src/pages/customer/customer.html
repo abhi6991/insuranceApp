@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Customer
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+ <ion-card *ngIf="!createdCode"> 
+   <ion-card-content> 
+    <ion-item>
+      <ion-input type="text" placeholder="Name" [(ngModel)]="qrData.name">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Disease" [(ngModel)]="qrData.disease">
+      </ion-input>
+    </ion-item>  
+    <button ion-button full icon-left (click)="createCode()"><ion-icon name="barcode"></ion-icon>Create Code</button>
+  </ion-card-content>
+ </ion-card>
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCodeObject"></ngx-qrcode>
+    <p>Scan code to get Info</p>
+  </ion-card>
+ 
+</ion-content>
